@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46111174292695837, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5478725
+      value: 3.94
       objectReference: {fileID: 0}
     - target: {fileID: 46111174292695837, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -254,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 46111174292695839, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_Name
       value: lilypad (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629369090146508869, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
+      propertyPath: levyAlpha
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
@@ -350,9 +354,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  moveSpeed: 3
-  minPosition: {x: 0, y: 0, z: 0}
-  maxPosition: {x: 10, y: 10, z: 0}
+  moveSpeed: 0.1
+  minPosition: {x: -5, y: -5, z: 0}
+  maxPosition: {x: 5, y: 5, z: 0}
+  levyAlpha: 1.5
 --- !u!212 &375144698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -952,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46111174292695837, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5851064
+      value: -5.05
       objectReference: {fileID: 0}
     - target: {fileID: 46111174292695837, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1226,7 +1231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46111174292695837, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.9
+      value: -5.1
       objectReference: {fileID: 0}
     - target: {fileID: 46111174292695837, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_LocalPosition.y

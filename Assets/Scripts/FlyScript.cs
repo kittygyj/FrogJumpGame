@@ -10,9 +10,11 @@ public class FlyScript : MonoBehaviour
     public GameController gameController; //access variables from GameController script
 
     //Fly movement
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2f;
     public Vector3 minPosition;
     public Vector3 maxPosition;
+    public float levyAlpha = 2f; // Parameter for the Levy distribution
+
 
     void Start()
     {
@@ -22,8 +24,8 @@ public class FlyScript : MonoBehaviour
 
     void Update()
     {
-        // Move the fly randomly
-        transform.position = Vector3.MoveTowards(transform.position, GetRandomPosition(), moveSpeed * Time.deltaTime);
+
+        transform.position = GetRandomPositionLevy();
     }
 
     Vector3 GetRandomPosition()
@@ -34,6 +36,33 @@ public class FlyScript : MonoBehaviour
         float z = Random.Range(minPosition.z, maxPosition.z);
 
         return new Vector3(x, y, z);
+    }
+
+    Vector3 GetRandomPositionLevy()
+    {
+        // Generate random step sizes according to the Levy distribution
+        float stepLength = LevyDistribution(levyAlpha) * moveSpeed;
+        // Generate random direction
+        float angle = Random.Range(0f, Mathf.PI * 2); // Random angle in radians
+        // Calculate the new position based on the random step size and direction
+        Vector3 newPosition = transform.position + new Vector3(Mathf.Cos(angle) * stepLength, Mathf.Sin(angle) * stepLength, 0f);
+        // Clamp the new position within the defined range
+        newPosition.x = Mathf.Clamp(newPosition.x, minPosition.x, maxPosition.x);
+        newPosition.y = Mathf.Clamp(newPosition.y, minPosition.y, maxPosition.y);
+        newPosition.z = Mathf.Clamp(newPosition.z, minPosition.z, maxPosition.z);
+
+        return newPosition;
+    }
+
+    // Levy distribution function
+    float LevyDistribution(float alpha)
+    {
+        // Generate a random step size according to the Levy distribution
+        float u = Random.Range(0.0001f, 0.9999f); // Avoiding 0 and 1 for stability
+        float v = Random.Range(0.0001f, 0.9999f); // Avoiding 0 and 1 for stability
+        float step = Mathf.Pow((1 / Mathf.Cos(v)), (1 / alpha)) * Mathf.Sin(alpha * u) / Mathf.Pow(u, (1 / alpha));
+
+        return step;
     }
 
     //code for checking if the player's tongue collides the fly
