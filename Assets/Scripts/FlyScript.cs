@@ -9,16 +9,31 @@ public class FlyScript : MonoBehaviour
 {
     public GameController gameController; //access variables from GameController script
 
-    // Start is called before the first frame update
+    //Fly movement
+    public float moveSpeed = 5f;
+    public Vector3 minPosition;
+    public Vector3 maxPosition;
+
     void Start()
     {
-        
+        // Initialize fly's starting position
+        transform.position = GetRandomPosition();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Move the fly randomly
+        transform.position = Vector3.MoveTowards(transform.position, GetRandomPosition(), moveSpeed * Time.deltaTime);
+    }
+
+    Vector3 GetRandomPosition()
+    {
+        // Generate random position within the defined range
+        float x = Random.Range(minPosition.x, maxPosition.x);
+        float y = Random.Range(minPosition.y, maxPosition.y);
+        float z = Random.Range(minPosition.z, maxPosition.z);
+
+        return new Vector3(x, y, z);
     }
 
     //code for checking if the player's tongue collides the fly
