@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelay: 0.5
   tongueOffset: {x: 0, y: 0.5, z: 0}
+  rotationOffset: -30
   tonguePrefab: {fileID: 1228111221187000394, guid: fe38f9421f3e0da46ab4366d4969cdf0, type: 3}
 --- !u!1001 &358453198
 PrefabInstance:
@@ -1472,7 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1388276786443718929, guid: c9e2f509f394be0469266dbea2289db6, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1388276786443718930, guid: c9e2f509f394be0469266dbea2289db6, type: 3}
       propertyPath: m_Name
@@ -1492,8 +1493,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 219409340, guid: fe38f9421f3e0da46ab4366d4969cdf0, type: 3}
+      propertyPath: tongueShrinkDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219409340, guid: fe38f9421f3e0da46ab4366d4969cdf0, type: 3}
+      propertyPath: tongueStretrchDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 219409340, guid: fe38f9421f3e0da46ab4366d4969cdf0, type: 3}
       propertyPath: maxTongueLengthMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1228111221187000394, guid: fe38f9421f3e0da46ab4366d4969cdf0, type: 3}
       propertyPath: m_Name

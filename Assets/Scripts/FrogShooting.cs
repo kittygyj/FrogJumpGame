@@ -8,6 +8,8 @@ public class FrogShooting : MonoBehaviour
 
     public Vector3 tongueOffset = new Vector3(0, 0.5f, 0);
 
+    public float rotationOffset = 0f;
+
     public GameObject tonguePrefab;
 
     float cooldownTimer = 0f;
@@ -25,7 +27,9 @@ public class FrogShooting : MonoBehaviour
             //Fire!
             Vector3 offset = transform.rotation * tongueOffset;
 
-            Instantiate(tonguePrefab, transform.position + offset, transform.rotation);
+            Quaternion RotationOffset = Quaternion.Euler(0, 0, rotationOffset);
+
+            Instantiate(tonguePrefab, transform.position + offset,RotationOffset * transform.rotation);
         }
     }
 }
