@@ -1792,6 +1792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c47761edd634447942d2b56c2aea24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 354991944}
   sinkMusic: {fileID: 8300000, guid: c5328a82a1bb1c042a91a0abffe7a25d, type: 3}
 --- !u!82 &1608196533
 AudioSource:
@@ -2387,7 +2388,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: lilypad
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1675639339837409098, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
 --- !u!1001 &1388276787366477263
 PrefabInstance:

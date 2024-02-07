@@ -12,6 +12,8 @@ public class FrogMovement : MonoBehaviour
 
     private float maxJumpHoldTime = 2f;
 
+    public bool isSink = false;
+
 
     void Start()
     {
@@ -68,5 +70,22 @@ public class FrogMovement : MonoBehaviour
         transform.position = pos;
     }
 
+    void OnTriggerEnter2D(Collider2D lilyPad) 
+    {
+        if (lilyPad.gameObject.tag == "LilyPad")
+        {
+            isSink = false;
+            Debug.Log("Safe");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D lilyPad)
+    {
+        if (lilyPad.gameObject.tag == "LilyPad")
+        {
+            isSink = true;
+            Debug.Log("danger");
+        }
+    }
 
 }

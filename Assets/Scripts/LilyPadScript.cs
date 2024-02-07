@@ -10,7 +10,6 @@ public class LilyPadScript : MonoBehaviour
 {
     public float timeBeforeDisappear = 5f;
     //public AudioClip musicClip; // Assign the music clip in the Unity Editor
-    public bool isSinked = false; // Check the if the lily pad has sinked or not for music change
     private bool hasPlayerEntered = false;
     //private AudioSource audioSource;
     private float startTime;
@@ -27,13 +26,11 @@ public class LilyPadScript : MonoBehaviour
         {
             // If the player has entered the lily pad trigger, start counting time
             float elapsedTime = Time.time - startTime;
-            isSinked = false; // When the player is back on the lily pad, change the music back
     
             // If enough time has passed, trigger the music change and destroy the lily pad
             if (elapsedTime >= timeBeforeDisappear)
             {
                 //ChangeMusic();
-                isSinked = true;
                 Destroy(gameObject);
             }
         }

@@ -7,7 +7,8 @@ using UnityEngine;
 // This script manages the music change
 public class MusicChange : MonoBehaviour
 {
-    public LilyPadScript lilyPadScript;
+    public GameObject player;
+    private FrogMovement playerScript;
 
     public AudioClip sinkMusic;
     private AudioSource currentMusic;
@@ -16,12 +17,13 @@ public class MusicChange : MonoBehaviour
     void Start()
     {
         currentMusic = GetComponent<AudioSource>();
+        playerScript = player.GetComponent<FrogMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (lilyPadScript.isSinked)
+        if (playerScript.isSink)
         {
             currentMusic.clip = sinkMusic;
         }
