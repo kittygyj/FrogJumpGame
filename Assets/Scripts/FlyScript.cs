@@ -24,8 +24,15 @@ public class FlyScript : MonoBehaviour
 
     void Update()
     {
-
         transform.position = GetRandomPositionLevy();
+
+        bool Levy_flight = ScoreManager.instance.Levy_flight;
+
+        if(Levy_flight)
+        {
+            //transform.position = GetRandomPositionLevy();
+        }
+        
     }
 
     Vector3 GetRandomPosition()

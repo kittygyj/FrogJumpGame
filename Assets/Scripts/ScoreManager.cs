@@ -12,6 +12,10 @@ public class ScoreManager : MonoBehaviour
     public Toggle toggle1;
     public bool tongue_ez;
 
+    public Toggle toggle2;
+
+    public bool Levy_flight;
+
     int score = 0;
     int highScore = 0;
 
@@ -29,6 +33,9 @@ public class ScoreManager : MonoBehaviour
 
         toggle1.onValueChanged.AddListener(delegate { ToggleValueChanged(toggle1); });
         tongue_ez = true;
+
+        toggle2.onValueChanged.AddListener(delegate { ToggleValueChanged(toggle2); });
+        Levy_flight = true;
     }
 
     // Update is called once per frame
@@ -63,6 +70,22 @@ public class ScoreManager : MonoBehaviour
             {
                 // Disable or change behavior
                 tongue_ez = false;
+                //Debug.Log("Toggle Off!");
+            }
+        }
+
+        if (toggle == toggle2)
+        {
+            if (toggle.isOn)
+            {
+                // Enable one type of behavior
+                Levy_flight = true;
+                //Debug.Log("Toggle On!");
+            }
+            else
+            {
+                // Disable or change behavior
+                Levy_flight = false;
                 //Debug.Log("Toggle Off!");
             }
         }
