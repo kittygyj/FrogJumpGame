@@ -24,13 +24,16 @@ public class FlyScript : MonoBehaviour
 
     void Update()
     {
-        transform.position = GetRandomPositionLevy();
+        //transform.position = GetRandomPositionLevy();
 
         bool Levy_flight = ScoreManager.instance.Levy_flight;
 
         if(Levy_flight)
         {
-            //transform.position = GetRandomPositionLevy();
+            transform.position = GetRandomPositionLevy();
+        } else 
+        {
+            transform.position = GetRandomPositionUniform();
         }
         
     }
@@ -43,6 +46,22 @@ public class FlyScript : MonoBehaviour
         float z = Random.Range(minPosition.z, maxPosition.z);
 
         return new Vector3(x, y, z);
+    }
+
+    Vector3 GetRandomPositionUniform()
+    {
+        // Generate random step sizes according to the Levy distribution
+        float stepLength = Random.Range(0.0001f, 0.9999f) * moveSpeed;
+        // Generate random direction
+        float angle = Random.Range(0f, Mathf.PI * 2); // Random angle in radians
+        // Calculate the new position based on the random step size and direction
+        Vector3 newPosition = transform.position + new Vector3(Mathf.Cos(angle) * stepLength, Mathf.Sin(angle) * stepLength, 0f);
+        // Clamp the new position within the defined range
+        newPosition.x = Mathf.Clamp(newPosition.x, minPosition.x, maxPosition.x);
+        newPosition.y = Mathf.Clamp(newPosition.y, minPosition.y, maxPosition.y);
+        newPosition.z = Mathf.Clamp(newPosition.z, minPosition.z, maxPosition.z);
+
+        return newPosition;
     }
 
     Vector3 GetRandomPositionLevy()
