@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
 
     public bool Levy_flight;
 
+    
+
     int score = 0;
     int highScore = 0;
 
