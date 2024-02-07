@@ -8,29 +8,52 @@ using UnityEngine;
 
 public class LilyPadScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float timeBeforeDisappear = 5f;
+    public AudioClip musicClip; // Assign the music clip in the Unity Editor
+    private bool hasPlayerEntered = false;
+    private AudioSource audioSource;
+    private float startTime;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //code here should be something like after xxxx secs, Destroy(gameObject)
-
-        //I want to implement a music change here.
-        //First, the lily pad stays on the water for a while
-        //after some sec, it starts disappearing
-        //should set a trigger here for music change
-        //after the music changed, the lily pad stays for another few secs, and than destroy
-        //The music change should ONLY happen when the player is on this lily pad. So maybe something like a collision detector should work here.
-
+        if (hasPlayerEntered)
+        {
+            // If the player has entered the lily pad trigger, start counting time
+            float elapsedTime = Time.time - startTime;
+            
+            // If enough time has passed, trigger the music change and destroy the lily pad
+            if (elapsedTime >= timeBeforeDisappear)
+            {
+                ChangeMusic();
+                Destroy(gameObject);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        if(hasPlayerEntered == false)
+        {
+            hasPlayerEntered = true;
+            startTime = Time.time;
+        }
         
+    }
+
+    void ChangeMusic()
+    {
+        // Check if an audio clip is assigned
+        if (musicClip != null)
+        {
+            // Change the music to the assigned clip
+            audioSource.clip = musicClip;
+            audioSource.Play();
+        }
     }
 }
