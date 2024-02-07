@@ -16,7 +16,7 @@ public class TongueLaunch : MonoBehaviour
     float maxTongueLength;
     float startTime;
 
-    float epsilon = 0.001f;
+    //float epsilon = 0.001f;
 
     float EaseInOut(float t)
     {
