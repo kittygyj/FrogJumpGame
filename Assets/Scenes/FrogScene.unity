@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c47761edd634447942d2b56c2aea24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sinkMusic: {fileID: 8300000, guid: c5328a82a1bb1c042a91a0abffe7a25d, type: 3}
 --- !u!82 &1608196533
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1330,7 +1331,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1695869207
 PrefabInstance:
