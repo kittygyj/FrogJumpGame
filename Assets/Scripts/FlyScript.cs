@@ -78,4 +78,21 @@ public class FlyScript : MonoBehaviour
 
     }
 
+    //Fly only collides with tongue
+    //The reason why i create tongue layer and frog layer separately is , frog collides with lilypads, tongue collides with flies, but tongue should not collides with lilypads.
+    //If the tongue is tagged with "Player", then lilypads that is touched by tongue will sink.
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        Die();
+    }
+
+    void Die()
+    {
+        Debug.Log("Score!");
+        ScoreManager.instance.AddPoint();
+        //gameController.score =+1 ; //adding score when the player catches a fly
+        Destroy(gameObject); //make the fly object disappear on the screen
+    }
+
 }

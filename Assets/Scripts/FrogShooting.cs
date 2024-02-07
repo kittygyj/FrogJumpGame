@@ -21,7 +21,7 @@ public class FrogShooting : MonoBehaviour
 
         if ( Input.GetButton("Fire1") && cooldownTimer <= 0)
         {
-            Debug.Log("Pew!");
+            //Debug.Log("Pew!");
             cooldownTimer = fireDelay;
 
             //Fire!

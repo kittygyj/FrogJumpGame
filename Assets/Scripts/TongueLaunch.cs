@@ -26,7 +26,7 @@ public class TongueLaunch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Tongue Start!");
+        //Debug.Log("Tongue Start!");
         
         initialTongueLength = transform.localScale.y;
 
@@ -69,7 +69,7 @@ public class TongueLaunch : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Tongue Die!");
+        //Debug.Log("Tongue Die!");
         Destroy(gameObject);
     }
 }

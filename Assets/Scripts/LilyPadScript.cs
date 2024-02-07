@@ -27,4 +27,10 @@ public class LilyPadScript : MonoBehaviour
         //The music change should ONLY happen when the player is on this lily pad. So maybe something like a collision detector should work here.
 
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        
+    }
 }
