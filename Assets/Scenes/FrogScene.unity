@@ -483,7 +483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -439, y: 85}
+  m_AnchoredPosition: {x: -397.9, y: 88.9}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &232303427
@@ -1759,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436.2, y: 142.9}
+  m_AnchoredPosition: {x: -397.9, y: 144.2}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1608196531
@@ -2387,10 +2387,6 @@ PrefabInstance:
     - target: {fileID: 46111174292695839, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
       propertyPath: m_Name
       value: lilypad
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1675639339837409098, guid: bc2b8a6d2af603f42879e4a332f69c3a, type: 3}
