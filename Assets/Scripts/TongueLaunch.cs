@@ -21,6 +21,9 @@ public class TongueLaunch : MonoBehaviour
     float EaseInOut(float t)
     {
         return t < 0.5f ? 2f * t * t : -1f + (4f - 2f * t) * t;
+        //return t < 0.5f ? 2f * t * t : 1f - Mathf.Pow(-2f * t + 2f, 2) / 2f;
+        //return 2*t-t*t;
+        //return Mathf.Pow(Mathf.Sin(t * Mathf.PI / 2f), 3f);
     }
 
     // Start is called before the first frame update
@@ -38,12 +41,14 @@ public class TongueLaunch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool tongue_ez = ScoreManager.instance.tongue_ez;
+
         float elapsedTime = Time.time - startTime;
         if(elapsedTime < tongueStretrchDuration)
         {
             float ratio = Mathf.Min(elapsedTime/tongueStretrchDuration, 1f);
 
-            ratio = EaseInOut(ratio);
+            if(tongue_ez) ratio = EaseInOut(ratio);
 
             currentTongueLength = ratio*maxTongueLength;
         } else 

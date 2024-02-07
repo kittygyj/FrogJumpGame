@@ -9,6 +9,9 @@ public class ScoreManager : MonoBehaviour
     public Text scoreText;
     public Text highscoreText;
 
+    public Toggle toggle1;
+    public bool tongue_ez;
+
     int score = 0;
     int highScore = 0;
 
@@ -23,6 +26,9 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString() + " POINTS";
         highScore = PlayerPrefs.GetInt("highScore", 0);
         highscoreText.text = "HIGHSCORE: " + highScore.ToString();
+
+        toggle1.onValueChanged.AddListener(delegate { ToggleValueChanged(toggle1); });
+        tongue_ez = true;
     }
 
     // Update is called once per frame
@@ -42,5 +48,26 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("highScore", highScore);
         }
     } 
+
+    void ToggleValueChanged(Toggle toggle)
+    {
+        if (toggle == toggle1)
+        {
+            if (toggle.isOn)
+            {
+                // Enable one type of behavior
+                tongue_ez = true;
+                //Debug.Log("Toggle On!");
+            }
+            else
+            {
+                // Disable or change behavior
+                tongue_ez = false;
+                //Debug.Log("Toggle Off!");
+            }
+        }
+        
+        // Add additional conditions for more toggles
+    }
 
 }
