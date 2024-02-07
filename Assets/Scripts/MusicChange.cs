@@ -7,7 +7,7 @@ using UnityEngine;
 // This script manages the music change
 public class MusicChange : MonoBehaviour
 {
-    private LilyPadScript lilyPadScript;
+    public LilyPadScript lilyPadScript;
 
     public AudioClip sinkMusic;
     private AudioSource currentMusic;
